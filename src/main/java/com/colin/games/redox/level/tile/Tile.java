@@ -1,12 +1,14 @@
-package com.colin.games.redox.level;
+package com.colin.games.redox.level.tile;
 
+import com.colin.games.redox.Directional;
 import com.colin.games.redox.actor.player.Player;
+import com.colin.games.redox.level.feature.Feature;
 import com.colin.games.redox.utils.Point;
 
 import java.util.Objects;
 import java.util.Optional;
 
-public class Tile {
+public abstract class Tile implements Directional {
     private Point location;
     private Feature feature = null;
     public Tile(Point p){
@@ -32,6 +34,10 @@ public class Tile {
     }
     public Point getLocation(){
         return location;
+    }
+
+    public boolean canHaveFeature(){
+        return feature == null;
     }
 
     @Override

@@ -1,5 +1,7 @@
 package com.colin.games.redox.level;
 
+import com.colin.games.redox.level.tile.Tile;
+
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;

@@ -1,4 +1,4 @@
-package com.colin.games.redox.level;
+package com.colin.games.redox.level.feature;
 
 import com.colin.games.redox.actor.player.Player;
 
