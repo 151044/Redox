@@ -5,7 +5,7 @@ import com.colin.games.redox.utils.Sprite;
 
 public class Edge extends Tile{
     public Edge(Point p) {
-        super(p, Orientation.DOWN);
+        super(p, Orientation.DOWN,"Edge");
     }
 
     @Override

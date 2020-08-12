@@ -2,13 +2,30 @@ package com.colin.games.redox.level;
 
 import com.colin.games.redox.utils.RandomUtils;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 
 public class LevelGenerator {
     public static Level getLevel(int rooms){
         Level toMod = new Level(192,192);
+        List<Room> prelim = new ArrayList<>();
         for(int i = 0; i < rooms; i++){
-            toMod.placeRoom(new Room(RandomUtils.rangeBetween(3,40),RandomUtils.rangeBetween(3,40),RandomUtils.rangeBetween(2,190),RandomUtils.rangeBetween(2,190)));
+            int width = RandomUtils.rangeBetween(10,40);
+            int height = RandomUtils.rangeBetween(8,30);
+            Room temp = new Room(width,height,RandomUtils.rangeBetween(2,191 - width),RandomUtils.rangeBetween(2,191 - height));
+            prelim.add(temp);
+        }
+        for(Room r : prelim){
+            for(Room check : prelim){
+                if(r == check){
+                    continue;
+                }
+                r.clearOverlapping(check);
+            }
+        }
+        for(Room finalized : prelim){
+            toMod.placeRoom(finalized);
         }
         return toMod;
     }

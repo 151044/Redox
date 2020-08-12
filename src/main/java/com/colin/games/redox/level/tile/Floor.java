@@ -5,7 +5,7 @@ import com.colin.games.redox.utils.Sprite;
 
 public class Floor extends Tile{
     public Floor(Point p) {
-        super(p,Orientation.DOWN);
+        super(p,Orientation.DOWN,"Floor");
     }
 
     @Override

@@ -7,7 +7,7 @@ import com.colin.games.redox.utils.Sprite;
 public class Wall extends Tile {
 
     public Wall(Point p,Orientation orient) {
-        super(p,orient);
+        super(p,orient,"Wall");
     }
 
     @Override

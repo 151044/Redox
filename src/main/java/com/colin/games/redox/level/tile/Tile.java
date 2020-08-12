@@ -12,14 +12,17 @@ public abstract class Tile implements Directional{
     private Point location;
     private Feature feature = null;
     private Orientation orient;
-    public Tile(Point p,Orientation orient){
+    private String type;
+    public Tile(Point p,Orientation orient,String type){
         location = p;
         this.orient = orient;
+        this.type = type;
     }
-    public Tile(Point p,Feature feature,Orientation orient){
+    public Tile(Point p,Feature feature,Orientation orient,String type){
         this.feature = feature;
         location = p;
         this.orient = orient;
+        this.type = type;
     }
     public boolean hasFeature(){
         return feature == null;
@@ -48,13 +51,12 @@ public abstract class Tile implements Directional{
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Tile tile = (Tile) o;
-        return Objects.equals(location, tile.location) &&
-                feature.equals(tile.feature);
+        return Objects.equals(location, tile.location);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(location, feature);
+        return Objects.hash(location);
     }
     public Orientation getOrientation(){
         return orient;

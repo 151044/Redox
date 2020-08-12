@@ -6,7 +6,7 @@ import com.colin.games.redox.utils.Sprite;
 public class Door extends Tile{
     private boolean isOpen = false;
     public Door(Point p) {
-        super(p,Orientation.LEFT);
+        super(p,Orientation.LEFT,"Door");
     }
 
     @Override
