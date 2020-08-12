@@ -1,6 +1,8 @@
 package com.colin.games.redox;
 
-import com.colin.games.redox.gui.WelcomeFrame;
+import com.colin.games.redox.level.Level;
+import com.colin.games.redox.level.LevelGenerator;
+import com.colin.games.redox.level.Room;
 
 import java.util.Random;
 public class Launch {
@@ -9,7 +11,7 @@ public class Launch {
     }
     private static long seed = new Random().nextLong();
     public static void main(String[] args) {
-        new WelcomeFrame();
+        System.out.println(LevelGenerator.getLevel(5).dump());
     }
     public static long getSeed(){
         return seed;

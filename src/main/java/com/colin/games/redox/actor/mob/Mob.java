@@ -1,4 +1,6 @@
 package com.colin.games.redox.actor.mob;
 
-public class Mob {
+public abstract class Mob {
+    private int health;
+
 }
