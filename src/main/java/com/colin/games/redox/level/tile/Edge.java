@@ -27,4 +27,9 @@ public class Edge extends Tile{
     public boolean canHaveFeature() {
         return false;
     }
+
+    @Override
+    public boolean isDigPossible() {
+        return false;
+    }
 }

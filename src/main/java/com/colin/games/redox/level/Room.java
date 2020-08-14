@@ -9,7 +9,6 @@ import com.colin.games.redox.utils.Point;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Collectors;
 
 public class Room {
@@ -51,12 +50,11 @@ public class Room {
         return intersect;
     }
     public boolean intersects(Room other){
-        return tiles.stream().flatMap(list -> list.stream()).anyMatch(t -> other.getAllTiles().contains(t));
+        return tiles.stream().flatMap(Collection::stream).anyMatch(t -> other.getAllTiles().contains(t));
     }
     public Room clearOverlapping(Room other){
-        intersection(other).stream().filter(t -> t instanceof Wall).forEach(t -> {
+        intersection(other).stream().filter(t -> t instanceof Wall || other.tiles.get(t.getY() - other.scale.getY()).get(t.getX() - other.scale.getX()) instanceof Wall).forEach(t -> {
            Point toOp = t.getLocation();
-           System.out.println(toOp);
            tiles.get(toOp.getY() - scale.getY()).set(toOp.getX() - scale.getX(), new Floor(toOp));
            other.tiles.get(toOp.getY() - other.scale.getY()).set(toOp.getX() - other.scale.getX(), new Floor(toOp));
         });

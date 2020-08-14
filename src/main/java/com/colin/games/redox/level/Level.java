@@ -1,8 +1,6 @@
 package com.colin.games.redox.level;
 
-import com.colin.games.redox.level.tile.Edge;
-import com.colin.games.redox.level.tile.Rock;
-import com.colin.games.redox.level.tile.Tile;
+import com.colin.games.redox.level.tile.*;
 import com.colin.games.redox.utils.Point;
 
 import java.util.ArrayList;
@@ -30,7 +28,11 @@ public class Level {
         return tiles.stream().map(l -> l.stream().map(t -> String.valueOf(t.getActualAscii())).collect(Collectors.joining())).collect(Collectors.joining("\n"));
     }
     public Level placeRoom(Room r){
-        r.getAllTiles().forEach(t -> tiles.get(t.getY()).set(t.getX(),t));
+        r.getAllTiles().forEach(t -> {
+            if(!(t instanceof Wall && tiles.get(t.getY()).get(t.getX()) instanceof Floor)){
+                tiles.get(t.getY()).set(t.getX(),t);
+            }
+        });
         return this;
     }
 }

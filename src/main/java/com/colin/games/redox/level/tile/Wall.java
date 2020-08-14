@@ -1,6 +1,5 @@
 package com.colin.games.redox.level.tile;
 
-import com.colin.games.redox.Directional;
 import com.colin.games.redox.utils.Point;
 import com.colin.games.redox.utils.Sprite;
 
